@@ -1,0 +1,14 @@
+7
+4332,aume1,prenume1,1,tasnad primariei6,F,fara consult,false
+5687,hume2,prenume2,3,bucuresti.str Unirii,F,fara consult,false
+4343,nume3,prenume3,7,cluj olimpiadei nr 56,F,fara consult,false
+3873,nume4,prenume4,16,valcea,F,fara consult,914,false
+8753,cume5,prenume5,18,Salonta str universitate 4,M,fara consult,false
+8713,nume6,prenume6,36,Floresti str unirii 6,M,fara consult,false
+3284,kume7,prenume7,150,Gilau str galaxiei 8,F,fara consult,false
+5
+AVC,1medicament1,medicament1
+AVC2,medicament2,medicament2
+AVC3,medicament3,medicament3
+AVC4,medicament4,medicament4
+AVC5,medicament5,medicament5
