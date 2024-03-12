@@ -7,9 +7,11 @@ import java.util.*;
 public class PacientRepo {
 
     private final List<Pacient> pacienti = new ArrayList<>();
-    private final List<Medicament> medicamente = new ArrayList<>();
+//    private final List<Medicament> medicamente = new ArrayList<>();
     private final List<Boli> bolile = new ArrayList<>();
 
+    public PacientRepo() {
+    }
 
     public PacientRepo adaugaBoli (Boli boala){
         boolean isIn = false;
@@ -22,7 +24,6 @@ public class PacientRepo {
         if (!isIn) {
             this.bolile.add(new Boli(boala.getNumeBoala(),boala.getMedicamenteCompatibile()));
         }
-
         return this;
     }
     public Pacient cautaPacientCNP(int CNP){
@@ -33,12 +34,10 @@ public class PacientRepo {
         }return null;
     }
 
-    public Pacient adaugaPacientiRepository(Pacient pacient){
+    public void adaugaPacientiRepository(Pacient pacient){
         if(cautaPacientCNP(pacient.getCNP())==null){
             this.pacienti.add(pacient);
-            return pacient;
         }
-        return null;
     }
     public boolean stergerePacientRepo(Pacient pacient){
         try {
@@ -68,15 +67,14 @@ public List<Medicament> getAllMedicamente(){
 
     // functie care cauta si returneaza pacientul dupa CNP, si updateaza consultatia!
 
-    public PacientRepo updatePacient (Pacient pacientDeUpdatat){
+    public void updatePacient (Pacient pacientDeUpdatat){
         for(int i=0; i<this.pacienti.size();i++){
             if (this.pacienti.get(i).getCNP()==pacientDeUpdatat.getCNP()){
               this.pacienti.get(i).setConsultat(pacientDeUpdatat.getConsultat());
               this.pacienti.get(i).setDenumireBoala(pacientDeUpdatat.getDenumireBoala());
-              return this;
+              return;
             }
         }
-        return null;
     }
 
 
