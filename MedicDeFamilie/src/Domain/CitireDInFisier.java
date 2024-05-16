@@ -30,17 +30,18 @@ public class CitireDInFisier {
             for (int i = 0; i < nrPacienti; i++) {
                 String linieCurenta = bufferedReader.readLine();
                 String[] atribute = linieCurenta.split(",");
-                int CNP = Integer.parseInt(atribute[0]);
-                String nume = atribute[1];
-                String prenume = atribute[2];
-                int varsta = Integer.parseInt(atribute[3]);
-                String adresa = atribute[4];
-                String sex = atribute[5];
+                int id = Integer.parseInt(atribute[0]);
+                int CNP = Integer.parseInt(atribute[1]);
+                String nume = atribute[2];
+                String prenume = atribute[3];
+                int varsta = Integer.parseInt(atribute[4]);
+                String adresa = atribute[5];
+                String sex = atribute[6];
                 char sexChar = sex.charAt(0);
-                String numeBoala = atribute[6];
+                String numeBoala = atribute[7];
                 Boli boala = new Boli(numeBoala, null);
-                Boolean consultat = Boolean.parseBoolean(atribute[7]);
-                listaPacient[i] = new Pacient(CNP, nume, prenume, varsta, adresa, sexChar, boala, consultat);
+                boolean consultat = Boolean.parseBoolean(atribute[8]);
+                listaPacient[i] = new Pacient(id,CNP, nume, prenume, varsta, adresa, sexChar, boala, consultat);
                 pacientService.addPacient(listaPacient[i]);
             }
 
