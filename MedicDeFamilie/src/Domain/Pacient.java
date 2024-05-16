@@ -1,6 +1,7 @@
 package Domain;
 
-public class Pacient {
+public class Pacient implements Entity {
+    private final int id;
     private int CNP;
     private String nume;
     private String prenume;
@@ -11,7 +12,8 @@ public class Pacient {
     private Boolean consultat;
 
 
-    public Pacient(int CNP, String nume, String prenume, int varsta, String adresa, char sex, Boli boalacurenta, boolean consultat)  {
+    public Pacient(int id, int CNP, String nume, String prenume, int varsta, String adresa, char sex, Boli boalacurenta, boolean consultat) {
+        this.id = id;
         this.CNP = CNP;
         this.nume = nume;
         this.prenume = prenume;
@@ -41,19 +43,6 @@ public class Pacient {
     public int getCNP() {
         return CNP;
     }
-//
-//    @Override
-//    public String toString() {
-//        return  CNP +
-//                "   |   " + nume +
-//                "   |   " + prenume +
-//                "   |   " + varsta +
-//                "   |   " + adresa +
-//                "          |   " + sex +
-//                "   |   " + denumireBoala +
-//                "   |   " +denumireBoala.getMedicamenteCompatibile()+
-//                "   |   " + consultat;
-//    }
 
     public void setCNP(int CNP) {
         this.CNP = CNP;
@@ -79,13 +68,8 @@ public class Pacient {
         return varsta;
     }
 
-    public void setVarsta(int varsta) throws Exception {
-
-            if (varsta>0 && varsta<125) {
-                this.varsta = varsta;
-            }else throw new Exception("VarstaNu E VALIDA");
-
-
+    public void setVarsta(int varsta) {
+        this.varsta = varsta;
     }
 
     public String getAdresa() {
@@ -102,6 +86,11 @@ public class Pacient {
 
     public void setSex(char sex) {
         this.sex = sex;
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 }
 
