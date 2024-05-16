@@ -20,19 +20,5 @@ public class Medicament {
         this.nume = nume;
     }
 
-//    public Boli getPentruCeBoala() {
-//        return pentruCeBoala;
-//    }
-
-//    public void setPentruCeBoala(Boli pentruCeBoala) {
-//        this.pentruCeBoala = pentruCeBoala;
-//        if (pentruCeBoala.getNumeBoala()==)
-//    }
-    //
-    // daca eliquis atunci AVC
-    // daca Milgamma atunci avc
-    // daca paracetamol atunci raceala
-    // daca antibiotic atunci raceala
-
 
 }

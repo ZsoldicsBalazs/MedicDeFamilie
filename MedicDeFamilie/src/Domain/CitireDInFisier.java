@@ -1,11 +1,11 @@
 package Domain;
 
-import Repository.PacientRepo;
 import Service.PacientService;
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
 
 public class CitireDInFisier {
 
@@ -27,7 +27,7 @@ public class CitireDInFisier {
             int nrPacienti = Integer.parseInt(bufferedReader.readLine());
             Pacient[] listaPacient = new Pacient[nrPacienti];
 
-            for (int i=0;i<nrPacienti;i++) {
+            for (int i = 0; i < nrPacienti; i++) {
                 String linieCurenta = bufferedReader.readLine();
                 String[] atribute = linieCurenta.split(",");
                 int CNP = Integer.parseInt(atribute[0]);
@@ -38,9 +38,9 @@ public class CitireDInFisier {
                 String sex = atribute[5];
                 char sexChar = sex.charAt(0);
                 String numeBoala = atribute[6];
-                Boli boala =new Boli(numeBoala,null);
+                Boli boala = new Boli(numeBoala, null);
                 Boolean consultat = Boolean.parseBoolean(atribute[7]);
-                listaPacient[i] = new Pacient(CNP,nume, prenume, varsta, adresa, sexChar, boala, consultat);
+                listaPacient[i] = new Pacient(CNP, nume, prenume, varsta, adresa, sexChar, boala, consultat);
                 pacientService.addPacient(listaPacient[i]);
             }
 
@@ -49,25 +49,25 @@ public class CitireDInFisier {
         }
     }
 
-    public static void citireMedicamente(BufferedReader bufferedReader, PacientService pacientService)  {
+    public static void citireMedicamente(BufferedReader bufferedReader, PacientService pacientService) {
         try {
             int nrBoli = Integer.parseInt(bufferedReader.readLine());
-            Boli [] listaBoli = new Boli[nrBoli];
-            for (int i=0; i<listaBoli.length;i++){
+            Boli[] listaBoli = new Boli[nrBoli];
+            for (int i = 0; i < listaBoli.length; i++) {
                 String linieCurenta = bufferedReader.readLine();
                 String[] atribute = linieCurenta.split(",");
                 String numeBoala = atribute[0];
                 String numeMedicament1 = atribute[1];
-                String numeMedicament2=atribute[2];
+                String numeMedicament2 = atribute[2];
                 List<Medicament> listaMedicament = new ArrayList<>();
                 listaMedicament.add(new Medicament(numeMedicament1));
                 listaMedicament.add(new Medicament(numeMedicament2));
-                listaBoli[i] = new Boli(numeBoala,listaMedicament);
+                listaBoli[i] = new Boli(numeBoala, listaMedicament);
                 pacientService.addBoli(listaBoli[i]);
             }
 
 
-        } catch (Exception E){
+        } catch (Exception E) {
             System.out.println("lipsa citire medicamente");
 
         }
